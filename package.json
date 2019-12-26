@@ -1,5 +1,5 @@
 {
-  "name": "bouncing-ball",
+  "name": "bounce-ball",
   "version": "0.0.1",
   "description": "A bounce ball",
   "main": "dist/bounce-ball.js",
