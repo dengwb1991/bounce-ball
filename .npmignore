@@ -7,6 +7,7 @@ index.html
 .babelrc
 .eslintignore
 .eslintrc.js
+.DS_Store
 path.json
 tsconfig.json
 package-lock.json
