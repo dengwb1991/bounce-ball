@@ -23,7 +23,7 @@ class BounceBall {
   speed: number
   ballStyle: object
   textStyle: object
-  contentArray: string[] // 文案数组
+  contentArray: string[]
   timers: number[]
   ballPropsArray: BallProps[]
   $id: HTMLElement
@@ -35,7 +35,6 @@ class BounceBall {
 
   private init () {
     this.contentArray = this.text.split(' ')
-    // 添加小球
     this.append(this.$ball)
   }
 

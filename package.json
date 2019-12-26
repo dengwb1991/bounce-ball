@@ -1,6 +1,6 @@
 {
   "name": "bounce-ball",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A bounce ball",
   "main": "dist/bounce-ball.js",
   "typings": "index.d.ts",
@@ -16,6 +16,10 @@
     "bounce",
     "ball"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dengwb1991/bounce-ball.git"
+  },
   "devDependencies": {
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
