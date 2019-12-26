@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'GLT-Hundei-Tig';
+  src: url('./GLT-Hundei-Tig.ttf');
+}
+
+body {
+  background-color: #161616;
+}
+
+#main {
+  position: absolute;
+  font-family: 'GLT-Hundei-Tig';
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 30%;
+  font-size: 54px;
+  display: inline-block;
+  color: rgb(117, 116, 116);
+}
+
+.btn {
+  display: inline;
+  font-size: 20px;
+  cursor: pointer;
+  color: #f7f7f7;
+  font-weight: 500;
+}
+
+.ball {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  display: none;
+  background: #f7f7f7;
+  margin-left: -5px;
+  transition-property: left, top;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1), cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.text.highlight {
+  color: #f7f7f7;
+  text-shadow: 0px 0px 10px #f7f7f7;
+}
