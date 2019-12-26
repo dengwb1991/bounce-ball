@@ -8,7 +8,6 @@ export interface Config {
 
 export interface BallProps {
   left: number
-  top: number
   textLen: number
   textIndex: number
 }

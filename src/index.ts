@@ -3,19 +3,17 @@ import { getBall, getSpan, addClass, removeClass } from './util'
 
 class BounceBall {
   constructor (config: Config) {
-    const { id, text, speed = 6, ballStyle = {}, textStyle = {} } = config
+    const { id, text, speed = 10, ballStyle = {}, textStyle = {} } = config
     this.id = id
     this.text = text
     this.speed = speed
     this.ballStyle = ballStyle
     this.textStyle = textStyle
-    this.contentArray = []
     this.timers = []
     this.ballPropsArray = []
     this.$id = document.getElementById(this.id) as HTMLElement
     this.$ball = getBall()
     this.init()
-    this.bounce()
   }
 
   readonly id: string
@@ -23,7 +21,6 @@ class BounceBall {
   speed: number
   ballStyle: object
   textStyle: object
-  contentArray: string[]
   timers: number[]
   ballPropsArray: BallProps[]
   $id: HTMLElement
@@ -34,28 +31,24 @@ class BounceBall {
   }
 
   private init () {
-    this.contentArray = this.text.split(' ')
+    const contentArray: string[] = this.text.split(' ')
     this.append(this.$ball)
-  }
 
-  private bounce () {
-    for (let i = 0, len = this.contentArray.length; i < len; i++) {
-      const text = this.contentArray[i]
+    for (let i = 0, len = contentArray.length; i < len; i++) {
+      const text = contentArray[i]
 
       const $text = getSpan(text, 'text')
       this.append($text)
 
       const textLen = $text.offsetWidth
 
-      if (i + 1 < this.contentArray.length) {
+      if (i + 1 < contentArray.length) {
         this.append(getSpan(' '))
       }
       const ballLeft = $text.offsetLeft + textLen / 2
-      const ballTop = $text.offsetTop
 
       const ballProps: BallProps = {
         left: ballLeft,
-        top: ballTop,
         textLen,
         textIndex: i
       }
@@ -69,11 +62,7 @@ class BounceBall {
 
     this.$ball.style.transitionDuration = `${leftDuration}, ${topDuration}`
 
-    const ballOffsetLeft = this.$ball.offsetLeft
-    const delta = ballProps.left - ballOffsetLeft
-    const ballHalfWay = delta + ballOffsetLeft
-
-    this.$ball.style.left = `${ballHalfWay}px`
+    this.$ball.style.left = `${ballProps.left}px`
     this.$ball.style.top = '-1em'
 
     const halfwayReached = ballProps.textLen * this.speed / 2
